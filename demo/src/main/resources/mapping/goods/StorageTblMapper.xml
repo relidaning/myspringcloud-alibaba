@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lidaning.demo.goods.StorageTblMapper">
+    
+    <resultMap type="com.lidaning.demo.goods.StorageTbl" id="StorageTblResult">
+
+        <result property="id"    column="id"    />
+        <result property="commodityCode"    column="commodity_code"    />
+        <result property="count"    column="count"    />
+        
+    </resultMap>
+
+    <sql id="selectStorageTblVo">
+        select id as id, commodity_code as commodityCode, count as count  from storage_tbl
+    </sql>
+
+    <select id="selectStorageTblById" parameterType="String" resultMap="StorageTblResult">
+        <include refid="selectStorageTblVo"></include>
+        where id = #{ Id }
+    </select>
+
+    <select id="selectStorageTblList" parameterType="com.lidaning.demo.goods.StorageTbl" resultMap="StorageTblResult">
+        <include refid="selectStorageTblVo"/>
+        <where>
+
+            <if test="id != null and id.trim() != ''"> and id = #{ id }</if>
+            <if test="commodityCode != null and commodityCode.trim() != ''"> and commodity_code = #{ commodityCode }</if>
+            <if test="count != null and count.trim() != ''"> and count = #{ count }</if>
+            
+        </where>
+    </select>
+    
+    <insert id="insertStorageTbl" parameterType="com.lidaning.demo.goods.StorageTbl">
+        insert into storage_tbl
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+
+            <if test="id != null and id != ''">id,</if>
+            <if test="commodityCode != null and commodityCode != ''">commodity_code,</if>
+            <if test="count != null and count != ''">count,</if>
+            
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+
+            <if test="id != null and id != ''">#{ id },</if>
+            <if test="commodityCode != null and commodityCode != ''">#{ commodityCode },</if>
+            <if test="count != null and count != ''">#{ count },</if>
+            
+         </trim>
+    </insert>
+
+    <update id="updateStorageTbl" parameterType="com.lidaning.demo.goods.StorageTbl">
+        update StorageTbl
+        <trim prefix="SET" suffixOverrides=",">
+
+            <if test="id != null and id != ''">id = #{ id },</if>
+            <if test="commodityCode != null and commodityCode != ''">commodity_code = #{ commodityCode },</if>
+            <if test="count != null and count != ''">count = #{ count },</if>
+            
+        </trim>
+        where id = #{ id }
+    </update>
+
+    <delete id="deleteStorageTblById" parameterType="String">
+        delete from storage_tbl where id = #{ id }
+    </delete>
+
+    <delete id="deleteStorageTblByIds" parameterType="String">
+        delete from StorageTbl where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{ id }
+        </foreach>
+    </delete>
+</mapper>
