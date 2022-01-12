@@ -1,10 +1,8 @@
-package com.lidaning.demo.goods;
+package com.lidaning.consumer.goods;
 
 import java.util.List;
-import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
-public interface StorageTblMapper {
+public interface IStorageTblService{
 
     public StorageTbl selectStorageTblById(String id);
 
@@ -14,7 +12,7 @@ public interface StorageTblMapper {
 
     public int updateStorageTbl(StorageTbl storageTbl);
 
-    public int deleteStorageTblById(String id);
-
     public int deleteStorageTblByIds(String[] ids);
+
+    public int deleteStorageTblById(String id);
 }

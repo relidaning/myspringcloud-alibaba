@@ -1,5 +1,7 @@
 package com.lidaning.demo.user;
 
+import com.supervise.common.core.domain.AjaxResult;
+
 import java.util.List;
 
 public interface IUserService{
@@ -15,4 +17,6 @@ public interface IUserService{
     public int deleteUserByIds(String[] ids);
 
     public int deleteUserById(String id);
+
+    public AjaxResult buy();
 }

@@ -1,6 +1,4 @@
-package com.lidaning.demo.goods;
-
-import java.util.Date;
+package com.lidaning.consumer.goods;
 
 public class StorageTbl {
 

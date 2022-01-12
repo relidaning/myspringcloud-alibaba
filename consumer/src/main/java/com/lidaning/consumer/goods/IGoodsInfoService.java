@@ -1,4 +1,4 @@
-package com.lidaning.demo.goods;
+package com.lidaning.consumer.goods;
 
 import java.util.List;
 

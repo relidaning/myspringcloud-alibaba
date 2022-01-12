@@ -1,8 +1,9 @@
-package com.lidaning.demo.goods;
+package com.lidaning.consumer.goods;
 
-import java.util.List;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class StorageTblServiceImpl implements IStorageTblService{
