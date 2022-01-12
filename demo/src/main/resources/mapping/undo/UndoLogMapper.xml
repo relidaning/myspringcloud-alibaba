@@ -73,7 +73,7 @@
     </insert>
 
     <update id="updateUndoLog" parameterType="com.lidaning.demo.undo.UndoLog">
-        update UndoLog
+        update undo_log
         <trim prefix="SET" suffixOverrides=",">
 
             <if test="id != null and id != ''">id = #{id},</if>

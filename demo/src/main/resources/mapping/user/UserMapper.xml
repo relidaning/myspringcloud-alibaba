@@ -45,7 +45,7 @@
     </insert>
 
     <update id="updateUser" parameterType="com.lidaning.demo.user.User">
-        update User
+        update user
         <trim prefix="SET" suffixOverrides=",">
 
             <if test="id != null and id != ''">id = #{ id },</if>

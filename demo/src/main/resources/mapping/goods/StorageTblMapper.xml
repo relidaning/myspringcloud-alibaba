@@ -49,7 +49,7 @@
     </insert>
 
     <update id="updateStorageTbl" parameterType="com.lidaning.demo.goods.StorageTbl">
-        update StorageTbl
+        update storage_tbl
         <trim prefix="SET" suffixOverrides=",">
 
             <if test="id != null and id != ''">id = #{ id },</if>

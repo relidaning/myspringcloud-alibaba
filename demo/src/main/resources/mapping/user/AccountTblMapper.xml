@@ -49,7 +49,7 @@
     </insert>
 
     <update id="updateAccountTbl" parameterType="com.lidaning.demo.user.AccountTbl">
-        update AccountTbl
+        update account_tbl
         <trim prefix="SET" suffixOverrides=",">
 
             <if test="id != null and id != ''">id = #{ id },</if>
