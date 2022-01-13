@@ -50,7 +50,7 @@ public class UserServiceImpl implements IUserService{
         return userMapper.deleteUserById(id);
     }
 
-    @GlobalTransactional
+    @GlobalTransactional(name="buy", rollbackFor = Exception.class)
     @Override
     public AjaxResult buy() {
         AccountTbl account = accountTblService.selectAccountTblById("1");
@@ -58,7 +58,6 @@ public class UserServiceImpl implements IUserService{
         accountTblService.updateAccountTbl(account);
         String result = restTemplate.getForObject("http://goods/goods/storageTbl/deceStorage", String.class);
         System.out.println(result);
-
         return AjaxResult.success();
     }
 }
