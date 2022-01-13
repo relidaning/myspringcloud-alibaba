@@ -1,5 +1,6 @@
-package com.lidaning.goods.goods;
+package com.lidaning.goods.goods.mapper;
 
+import com.lidaning.goods.goods.domain.StorageTbl;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

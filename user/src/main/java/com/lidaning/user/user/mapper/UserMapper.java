@@ -1,10 +1,9 @@
-package com.lidaning.user.user;
+package com.lidaning.user.user.mapper;
 
-import com.supervise.common.core.domain.AjaxResult;
+import com.lidaning.user.user.domain.User;
 
 import java.util.List;
-
-public interface IUserService{
+public interface UserMapper {
 
     public User selectUserById(String id);
 
@@ -14,9 +13,7 @@ public interface IUserService{
 
     public int updateUser(User user);
 
-    public int deleteUserByIds(String[] ids);
-
     public int deleteUserById(String id);
 
-    public AjaxResult buy();
+    public int deleteUserByIds(String[] ids);
 }

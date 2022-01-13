@@ -1,6 +1,9 @@
-package com.lidaning.user.user;
+package com.lidaning.user.user.controller;
 
 import java.util.List;
+
+import com.lidaning.user.user.domain.AccountTbl;
+import com.lidaning.user.user.service.IAccountTblService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,38 +21,38 @@ import com.supervise.common.core.page.TableDataInfo;
 
 
 @RestController
-@RequestMapping("/user/user")
-public class UserController extends BaseController{
+@RequestMapping("/user/accountTbl")
+public class AccountTblController extends BaseController{
     @Autowired
-    private IUserService userService;
+    private IAccountTblService accountTblService;
 
     @GetMapping("/list")
-    public TableDataInfo list(User user){
+    public TableDataInfo list(AccountTbl accountTbl){
         startPage();
-        List<User> list = userService.selectUserList(user);
+        List<AccountTbl> list = accountTblService.selectAccountTblList(accountTbl);
         return getDataTable(list);
     }
 
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") String id){
-        return AjaxResult.success(userService.selectUserById(id));
+        return AjaxResult.success(accountTblService.selectAccountTblById(id));
     }
 
     @Log(title = "", businessType = BusinessType.INSERT)
     @PostMapping
-    public AjaxResult add(@RequestBody User user){
-        return toAjax(userService.insertUser(user));
+    public AjaxResult add(@RequestBody AccountTbl accountTbl){
+        return toAjax(accountTblService.insertAccountTbl(accountTbl));
     }
 
     @Log(title = "", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult edit(@RequestBody User user){
-        return toAjax(userService.updateUser(user));
+    public AjaxResult edit(@RequestBody AccountTbl accountTbl){
+        return toAjax(accountTblService.updateAccountTbl(accountTbl));
     }
 
     @Log(title = "", businessType = BusinessType.DELETE)
     @DeleteMapping
     public AjaxResult remove(@PathVariable String[] ids){
-        return toAjax(userService.deleteUserByIds(ids));
+        return toAjax(accountTblService.deleteAccountTblByIds(ids));
     }
 }

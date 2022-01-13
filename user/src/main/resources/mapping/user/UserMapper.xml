@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lidaning.user.user.UserMapper">
+<mapper namespace="com.lidaning.user.user.mapper.UserMapper">
     
-    <resultMap type="com.lidaning.user.user.User" id="UserResult">
+    <resultMap type="com.lidaning.user.user.domain.User" id="UserResult">
 
         <result property="id"    column="id"    />
         <result property="name"    column="name"    />
@@ -18,7 +18,7 @@
         where id = #{ Id }
     </select>
 
-    <select id="selectUserList" parameterType="com.lidaning.user.user.User" resultMap="UserResult">
+    <select id="selectUserList" parameterType="com.lidaning.user.user.domain.User" resultMap="UserResult">
         <include refid="selectUserVo"/>
         <where>
 
@@ -28,7 +28,7 @@
         </where>
     </select>
     
-    <insert id="insertUser" parameterType="com.lidaning.user.user.User">
+    <insert id="insertUser" parameterType="com.lidaning.user.user.domain.User">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
 
@@ -44,7 +44,7 @@
          </trim>
     </insert>
 
-    <update id="updateUser" parameterType="com.lidaning.user.user.User">
+    <update id="updateUser" parameterType="com.lidaning.user.user.domain.User">
         update user
         <trim prefix="SET" suffixOverrides=",">
 

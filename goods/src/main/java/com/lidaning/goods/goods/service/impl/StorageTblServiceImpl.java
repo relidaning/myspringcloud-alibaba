@@ -1,12 +1,15 @@
-package com.lidaning.goods.goods;
+package com.lidaning.goods.goods.service.impl;
 
+import com.lidaning.goods.goods.domain.StorageTbl;
+import com.lidaning.goods.goods.mapper.StorageTblMapper;
+import com.lidaning.goods.goods.service.IStorageTblService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class StorageTblServiceImpl implements IStorageTblService{
+public class StorageTblServiceImpl implements IStorageTblService {
     @Resource
     private StorageTblMapper storageTblMapper;
 

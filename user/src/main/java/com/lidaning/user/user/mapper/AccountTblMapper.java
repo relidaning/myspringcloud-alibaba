@@ -1,9 +1,9 @@
-package com.lidaning.user.user;
+package com.lidaning.user.user.mapper;
 
 import java.util.List;
-import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
+import com.lidaning.user.user.domain.AccountTbl;
+
 public interface AccountTblMapper {
 
     public AccountTbl selectAccountTblById(String id);

@@ -1,4 +1,6 @@
-package com.lidaning.user.user;
+package com.lidaning.user.user.service;
+
+import com.lidaning.user.user.domain.AccountTbl;
 
 import java.util.List;
 

@@ -1,11 +1,15 @@
-package com.lidaning.user.user;
+package com.lidaning.user.user.service.impl;
 
 import java.util.List;
+
+import com.lidaning.user.user.domain.AccountTbl;
+import com.lidaning.user.user.mapper.AccountTblMapper;
+import com.lidaning.user.user.service.IAccountTblService;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-public class AccountTblServiceImpl implements IAccountTblService{
+public class AccountTblServiceImpl implements IAccountTblService {
     @Resource
     private AccountTblMapper accountTblMapper;
 

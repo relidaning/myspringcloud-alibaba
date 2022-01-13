@@ -1,11 +1,11 @@
-package com.lidaning.user.user;
+package com.lidaning.user.user.service;
 
-import org.apache.ibatis.annotations.Mapper;
+import com.lidaning.user.user.domain.User;
+import com.supervise.common.core.domain.AjaxResult;
 
 import java.util.List;
 
-@Mapper
-public interface UserMapper {
+public interface IUserService{
 
     public User selectUserById(String id);
 
@@ -15,7 +15,9 @@ public interface UserMapper {
 
     public int updateUser(User user);
 
+    public int deleteUserByIds(String[] ids);
+
     public int deleteUserById(String id);
 
-    public int deleteUserByIds(String[] ids);
+    public AjaxResult buy();
 }

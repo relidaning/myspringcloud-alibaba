@@ -1,4 +1,4 @@
-package com.lidaning.user.user;
+package com.lidaning.user.user.domain;
 
 public class AccountTbl {
 

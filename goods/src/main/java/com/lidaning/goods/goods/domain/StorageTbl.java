@@ -1,4 +1,4 @@
-package com.lidaning.goods.goods;
+package com.lidaning.goods.goods.domain;
 
 public class StorageTbl {
 

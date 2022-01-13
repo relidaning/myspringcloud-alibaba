@@ -1,4 +1,6 @@
-package com.lidaning.goods.goods;
+package com.lidaning.goods.goods.service;
+
+import com.lidaning.goods.goods.domain.StorageTbl;
 
 import java.util.List;
 

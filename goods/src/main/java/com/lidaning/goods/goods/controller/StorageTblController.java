@@ -1,5 +1,7 @@
-package com.lidaning.goods.goods;
+package com.lidaning.goods.goods.controller;
 
+import com.lidaning.goods.goods.service.IStorageTblService;
+import com.lidaning.goods.goods.domain.StorageTbl;
 import com.supervise.common.annotation.Log;
 import com.supervise.common.core.controller.BaseController;
 import com.supervise.common.core.domain.AjaxResult;
@@ -49,11 +51,16 @@ public class StorageTblController extends BaseController{
 
     @GetMapping(value = "/deceStorage")
     public AjaxResult deceStorage(){
-        int a=1/0;
-        StorageTbl store = storageTblService.selectStorageTblById("1");
-        store.setCount(store.getCount() - 10);
-        storageTblService.updateStorageTbl(store);
-        return AjaxResult.success();
+        try{
+            int a=1/0;
+            StorageTbl store = storageTblService.selectStorageTblById("1");
+            store.setCount(store.getCount() - 10);
+            storageTblService.updateStorageTbl(store);
+            return AjaxResult.success();
+        }catch (Exception e){
+            throw e;
+        }
+
     }
 
 

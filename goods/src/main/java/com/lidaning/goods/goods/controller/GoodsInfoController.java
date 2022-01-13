@@ -1,5 +1,7 @@
-package com.lidaning.goods.goods;
+package com.lidaning.goods.goods.controller;
 
+import com.lidaning.goods.goods.domain.GoodsInfo;
+import com.lidaning.goods.goods.service.IGoodsInfoService;
 import com.supervise.common.annotation.Log;
 import com.supervise.common.core.controller.BaseController;
 import com.supervise.common.core.domain.AjaxResult;

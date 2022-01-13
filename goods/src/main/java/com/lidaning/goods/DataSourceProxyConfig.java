@@ -1,4 +1,4 @@
-package com.lidaning.user;
+package com.lidaning.goods;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import io.seata.rm.datasource.DataSourceProxy;

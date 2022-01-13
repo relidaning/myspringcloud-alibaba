@@ -1,12 +1,15 @@
-package com.lidaning.goods.goods;
+package com.lidaning.goods.goods.service.impl;
 
+import com.lidaning.goods.goods.domain.GoodsInfo;
+import com.lidaning.goods.goods.mapper.GoodsInfoMapper;
+import com.lidaning.goods.goods.service.IGoodsInfoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class GoodsInfoServiceImpl implements IGoodsInfoService{
+public class GoodsInfoServiceImpl implements IGoodsInfoService {
     @Resource
     private GoodsInfoMapper goodsInfoMapper;
 
