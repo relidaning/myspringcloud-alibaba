@@ -57,7 +57,7 @@ public class StorageTblController extends BaseController{
         try{
             String xid = RootContext.getXID();
             logger.debug("###xid:"+xid);
-//            int a=1/0;
+            int a=1/0;
             StorageTbl store = storageTblService.selectStorageTblById("1");
             store.setCount(store.getCount() - 10);
             storageTblService.updateStorageTbl(store);
