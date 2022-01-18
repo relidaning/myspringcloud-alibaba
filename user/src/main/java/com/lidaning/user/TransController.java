@@ -24,9 +24,9 @@ public class TransController {
     @GlobalTransactional(name="buy", rollbackFor = Exception.class)
     @GetMapping("/buy")
     public AjaxResult buy(){
-        userService.buy();
         String xid = RootContext.getXID();
         log.info("###xid={}", xid);
+        userService.buy();
         String result = restTemplate.getForObject("http://goods/goods/storageTbl/deceStorage", String.class);
         return AjaxResult.success();
     }

@@ -7,6 +7,9 @@ import com.supervise.common.core.controller.BaseController;
 import com.supervise.common.core.domain.AjaxResult;
 import com.supervise.common.core.page.TableDataInfo;
 import com.supervise.common.enums.BusinessType;
+import io.seata.core.context.RootContext;
+import io.seata.core.exception.TransactionException;
+import io.seata.tm.api.GlobalTransactionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,15 +53,19 @@ public class StorageTblController extends BaseController{
     }
 
     @GetMapping(value = "/deceStorage")
-    public AjaxResult deceStorage(){
+    public AjaxResult deceStorage() throws TransactionException {
         try{
-            int a=1/0;
+            String xid = RootContext.getXID();
+            logger.debug("###xid:"+xid);
+//            int a=1/0;
             StorageTbl store = storageTblService.selectStorageTblById("1");
             store.setCount(store.getCount() - 10);
             storageTblService.updateStorageTbl(store);
             return AjaxResult.success();
         }catch (Exception e){
-            throw e;
+            logger.error(e.getMessage());
+            GlobalTransactionContext.reload(RootContext.getXID()).rollback();
+            return AjaxResult.error(e.getMessage());
         }
 
     }

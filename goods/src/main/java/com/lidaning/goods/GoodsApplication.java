@@ -16,9 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @EnableDiscoveryClient
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication
 @MapperScan("com.lidaning.**.mapper")
-@Import({DataSourceProxyConfig.class})
 public class GoodsApplication {
 
     public static void main(String[] args) {
