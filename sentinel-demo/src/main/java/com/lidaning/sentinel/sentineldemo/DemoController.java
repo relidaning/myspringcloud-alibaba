@@ -5,6 +5,7 @@ import com.alibaba.csp.sentinel.SphU;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
+import com.alibaba.csp.sentinel.slots.block.degrade.DegradeException;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
 import org.slf4j.Logger;
@@ -48,15 +49,28 @@ public class DemoController {
     }
 
     @GetMapping("/method2")
-    @SentinelResource(value = "method2",blockHandler = "exceptionHandler")
+    @SentinelResource(value = "method2",blockHandler = "exceptionHandler2")
     public String method2(){
         log.info("exec method:method2");
         return "hello, sentinel!";
     }
 
-    public String exceptionHandler(BlockException ex){
+    public String exceptionHandler2(BlockException ex){
         log.error("Oops, blocked!");
         return "Oops, blocked!";
+    }
+
+    @GetMapping("/method3")
+    @SentinelResource(value = "method3",fallback = "exceptionHandler3")
+    public String method3() throws InterruptedException {
+        Thread.sleep(1000);
+        log.info("exec method:method3");
+        return "hello, sentinel!";
+    }
+
+    public String exceptionHandler3(DegradeException ex){
+        log.error("Oops, degraded!");
+        return "Oops, degraded!";
     }
 
 

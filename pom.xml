@@ -12,6 +12,7 @@
     <modules>
         <module>goods</module>
         <module>user</module>
+        <module>sentinel-demo</module>
     </modules>
 
     <properties>
